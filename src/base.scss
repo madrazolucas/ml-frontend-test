@@ -1,0 +1,26 @@
+// This scss file contains basic variables definitions to be used in the entire ML app test
+
+// Colors
+$white: #FFFFFF;
+$ml-yellow: #FFE600;
+$ml-very-dark-grey: #333333;
+$ml-dark-grey: #666666;
+$ml-grey: #999999;
+$ml-light-grey: #EEEEEE;
+$ml-light-blue: #3483FA;
+
+// Fonts
+$ml-font: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+$ml-search-input-font-size: 18px;
+$ml-search-detail-category-font-size: 14px;
+$ml-search-detail-location-font-size: 12px;
+$ml-search-detail-title-font-size: 18px;
+$ml-search-detail-price-font-size: 24px;
+$ml-product-detail-condition-font-size: 14px;
+$ml-product-detail-title-font-size: 24px;
+$ml-product-detail-price-font-size: 46px;
+
+// URL Images
+$ml-logo: url(/assets/Logo_ML.png);
+$ml-search-icon: url(/assets/ic_Search.png);
+$ml-shipping-icon: url(/assets/ic_shipping.png);

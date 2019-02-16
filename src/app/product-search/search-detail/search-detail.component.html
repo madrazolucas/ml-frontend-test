@@ -1,0 +1,21 @@
+  <!-- SEARCH PATH/CATEGORIES -->
+  <ul class="search-detail-path">
+    <li class="path-category" *ngFor="let category of searchCategories">{{category}}</li>
+  </ul>
+
+<!-- SEARCH DETAILS -->
+<section class="search-detail-container" *ngFor="let product of searchDetailList.items">
+  <a class="search-detail-product" (click)="openProductDetails(product)">
+    <div class="search-detail-product-image">
+      <img class="product-picture" src="{{product.picture}}">
+    </div>
+    <div class="search-detail-product-information">
+      <span class="product-price">!${{product.price.amount}}</span>
+      <i class="product-free-shipping" *ngIf="product.free_shipping" ></i>
+      <p class="product-title">{{product.title}}</p>
+    </div>
+    <div class="search-detail-product-location">
+      <p class="product-location-city">{{product.location}}</p>
+    </div>
+  </a>
+</section>

@@ -1,0 +1,30 @@
+<ul class="product-detail-path">
+  <li class="path-category" *ngFor="let category of productCategories">{{category}}</li>
+</ul>
+
+<section class="product-detail-container">
+    <div class="product-detail">
+      <div class="product-detail-picture">
+        <img class="product-detail-image" src="{{product.item.picture}}">
+      </div>
+      <div class="product-detail-information">
+        <span class="product-detail-condition">
+          {{product.item.condition}} - {{product.item.sold_quantity}} vendidos
+        </span>
+        <div class="product-detail-title">
+          {{product.item.title}}
+        </div>
+        <span class="product-detail-price">
+          !$ {{product.item.price.amount}}
+          <sup>00</sup>
+        </span>
+        <a class="product-detail-buy" href="">Comprar!</a>
+      </div>
+      <div class="product-detail-description">
+        <h2>Descripcion</h2>
+        <div class="product-detail-description-text">
+          {{product.item.description}}
+        </div>
+      </div>
+    </div>
+</section>
