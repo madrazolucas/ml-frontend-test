@@ -34,7 +34,7 @@ export class ProductDetailComponent {
       .getProductDetail(this.productId)
       .subscribe(
         response => {
-          this.productDetail = response;
+          this.productDetail = response.item;
         }
       );
   }

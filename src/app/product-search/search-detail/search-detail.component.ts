@@ -11,7 +11,7 @@ import { ProductSearchService } from '../product-search.service';
 export class SearchDetailComponent {
 
   searchQuery: String;  
-  searchItems: SearchDetailItemModel[];
+  searchDetailList: SearchDetailItemModel[];
   searchCategories: String[];
   
   constructor(
@@ -19,7 +19,7 @@ export class SearchDetailComponent {
     private router: Router,
     private productSearchService: ProductSearchService
   ) {
-    this.searchItems = [];
+    this.searchDetailList = [];
     this.searchCategories = [];
   }
 
@@ -38,13 +38,13 @@ export class SearchDetailComponent {
       .getItems(this.searchQuery)
       .subscribe(
         response => {
-          this.searchItems = response.items;
+          this.searchDetailList = response.items;
           this.searchCategories = response.categories;
         }
       );
   }
 
-  openProductDetails(product: any): void {
-    this.router.navigate(['/items', product.id]);
+  openProductDetails(item: SearchDetailItemModel): void {
+    this.router.navigate(['/api/items', item.id]);
   }
 }

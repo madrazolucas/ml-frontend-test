@@ -4,8 +4,8 @@ import { SearchDetailComponent } from './product-search/search-detail/search-det
 import { ProductDetailComponent } from './product-search/product-detail/product-detail.component';
 
 const routes: Routes = [
-  { path: 'items', component: SearchDetailComponent },
-  { path: 'items/:id', component: ProductDetailComponent },
+  { path: 'api/items', component: SearchDetailComponent },
+  { path: 'api/items/:id', component: ProductDetailComponent },
   { path: '**', redirectTo: '/' }
 ];
 

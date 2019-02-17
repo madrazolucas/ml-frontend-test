@@ -14,7 +14,7 @@ export class ProductSearchComponent {
   constructor(private router: Router) {}
 
   searchProduct(): void {
-    this.router.navigate(['/items'], { queryParams: { search: this.searchText } });
+    this.router.navigate(['/api/items'], { queryParams: { search: this.searchText } });
   }
 
 }
