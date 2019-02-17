@@ -13,12 +13,14 @@ export class SearchDetailComponent {
   searchQuery: String;  
   searchDetailList: SearchDetailItemModel[];
   searchCategories: String[];
+  isLoading: boolean;
   
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private productSearchService: ProductSearchService
   ) {
+    this.isLoading = false;
     this.searchDetailList = [];
     this.searchCategories = [];
   }
@@ -34,12 +36,14 @@ export class SearchDetailComponent {
   }
 
   getSearchDetail(): void {
+    this.isLoading = true;
     this.productSearchService
       .getItems(this.searchQuery)
       .subscribe(
         response => {
           this.searchDetailList = response.items;
           this.searchCategories = response.categories;
+          this.isLoading = false;
         }
       );
   }

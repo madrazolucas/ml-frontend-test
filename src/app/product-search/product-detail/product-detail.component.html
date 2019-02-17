@@ -1,6 +1,6 @@
 <search-category [searchCategories]="productCategories"></search-category>
 
-<section class="product-detail-container">
+<section class="product-detail-container" *ngIf="!isLoading"> 
     <div class="product-detail">
       <div class="product-detail-picture">
         <img class="product-detail-image" src="{{productDetail.picture}}">
@@ -16,7 +16,7 @@
           !$ {{productDetail.price.amount}}
           <sup>00</sup>
         </span>
-        <a class="product-detail-buy" href="">Comprar!</a>
+        <a class="product-detail-buy">Comprar!</a>
       </div>
       <div class="product-detail-description">
         <h2>Descripcion</h2>

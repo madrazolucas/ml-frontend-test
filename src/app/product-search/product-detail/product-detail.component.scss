@@ -1,5 +1,7 @@
 @import '../../../base';
 
+$ml-product-detail-image-width: 680px;
+
 .product-detail-container {
   background-color: $white;
   margin: 16px 10%;
@@ -10,18 +12,21 @@
 
     .product-detail-picture {
       display: inline-block;
-      width: 680px;
+      width: $ml-product-detail-image-width;
+      padding-left: 32px;
 
       .product-detail-image {
         width: 100%;
-        -webkit-border-radius: 4px;
+        border-radius: 4px;
       }
     }
 
     .product-detail-information {
       margin-top: 16px;
+      margin-left: 16px;
       display: inline-block;
-      width: calc(100% - 680px);
+      // Width: container width - image width
+      width: calc(100% - #{$ml-product-detail-image-width} - 48px);
       vertical-align: top;
 
       .product-detail-condition {

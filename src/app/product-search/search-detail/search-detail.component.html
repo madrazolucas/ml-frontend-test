@@ -1,17 +1,18 @@
 <search-category [searchCategories]="searchCategories"></search-category>
-
-<section class="search-detail-container" *ngFor="let item of searchDetailList | slice:0:4">
-  <a class="search-detail-product" (click)="openProductDetails(item)">
-    <div class="search-detail-product-image">
-      <img class="product-picture" src="{{item.picture}}">
-    </div>
-    <div class="search-detail-product-information">
-      <span class="product-price">!$ {{item.price.amount}}</span>
-      <i class="product-free-shipping" *ngIf="item.free_shipping" ></i>
-      <p class="product-title">{{item.title}}</p>
-    </div>
-    <div class="search-detail-product-location">
-      <p class="product-location-city">{{item.city}}</p>
-    </div>
-  </a>
-</section>
+<div *ngIf="!isLoading"> 
+  <section class="search-detail-container" *ngFor="let item of searchDetailList | slice:0:4">
+    <a class="search-detail-product" (click)="openProductDetails(item)">
+      <div class="search-detail-product-image">
+        <img class="product-picture" src="{{item.picture}}">
+      </div>
+      <div class="search-detail-product-information">
+        <span class="product-price">!$ {{item.price.amount}}</span>
+        <i class="product-free-shipping" *ngIf="item.free_shipping" ></i>
+        <p class="product-title">{{item.title}}</p>
+      </div>
+      <div class="search-detail-product-location">
+        <p class="product-location-city">{{item.city}}</p>
+      </div>
+    </a>
+  </section>
+</div>

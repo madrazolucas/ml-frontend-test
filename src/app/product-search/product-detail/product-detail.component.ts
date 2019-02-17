@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductDetailModel } from './product-detail.model';
 import { ProductSearchService } from '../product-search.service';
 
@@ -10,13 +10,13 @@ import { ProductSearchService } from '../product-search.service';
 })
 export class ProductDetailComponent {
 
-  prodcutCategories: String[];
+  productCategories: String[];
   productId: String;
   productDetail: ProductDetailModel;
+  isLoading: boolean;
     
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private productSearchService: ProductSearchService
   ) {}
 
@@ -29,12 +29,14 @@ export class ProductDetailComponent {
   }
 
   getProductDetail(param): void {
+    this.isLoading = true;
     this.productId = param.params.id;
     this.productSearchService
       .getProductDetail(this.productId)
       .subscribe(
         response => {
           this.productDetail = response.item;
+          this.isLoading = false;
         }
       );
   }
