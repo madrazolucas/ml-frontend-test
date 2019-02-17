@@ -1,9 +1,13 @@
 export interface SearchDetailItemModel {
   id: string;
-  picture: string;
-  price: {
-    amount: number
-  };
-  free_shipping: boolean;
   title: string;
+  price: {
+    currency: string,
+    amount: number,
+    decimals: number
+  };
+  picture: string;
+  condition: string;
+  free_shipping: boolean;
+  city?: string;
 }

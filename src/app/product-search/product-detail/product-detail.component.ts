@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductDetailModel } from './product-detail.model';
+import { ProductSearchService } from '../product-search.service';
 
 @Component({
   selector: 'product-detail',
@@ -6,29 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
-  productCategories: String[] = ['Categoria 1', 'Categoria 2']
-  product = {
-    author: {
-        name: 'Lucas',
-        lastname: 'Madrazo'
-    },
-    categories: ['Electronica','Libro'],
-    item:{
-            id: "111AAA",
-            title: 'Zapatillas Nike',
-            price: {
-                currency: 'ARS',
-                amount: 3000,
-                decimals: 10
-            },
-            picture: 'https://http2.mlstatic.com/apple-ipod-touch-32gb-6ta-gen-nuevos-gtia-escrita-D_NQ_NP_843653-MLA28149398126_092018-O.jpg',
-            condition: 'new',
-            location: 'Buenos Aires',
-            sold_quantity: 100,
-            free_shipping: true,
-            description: "Es un miu buen productop"
+
+  prodcutCategories: String[];
+  productId: String;
+  productDetail: ProductDetailModel;
+    
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private productSearchService: ProductSearchService
+  ) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(
+      params => {
+        this.getProductDetail(params);
+      }
+    );
+  }
+
+  getProductDetail(param): void {
+    this.productId = param.params.id;
+    this.productSearchService
+      .getProductDetail(this.productId)
+      .subscribe(
+        response => {
+          this.productDetail = response;
         }
-};
-
-
+      );
+  }
 }
