@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
-  productCategories = ['Categoria 1', 'Categoria 2']
+  productCategories: String[] = ['Categoria 1', 'Categoria 2']
   product = {
     author: {
         name: 'Lucas',

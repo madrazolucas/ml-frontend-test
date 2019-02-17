@@ -1,9 +1,5 @@
-  <!-- SEARCH PATH/CATEGORIES -->
-  <ul class="search-detail-path">
-    <li class="path-category" *ngFor="let category of searchCategories">{{category}}</li>
-  </ul>
+<search-category [searchCategories]="searchCategories"></search-category>
 
-<!-- SEARCH DETAILS -->
 <section class="search-detail-container" *ngFor="let product of searchDetailList.items">
   <a class="search-detail-product" (click)="openProductDetails(product)">
     <div class="search-detail-product-image">

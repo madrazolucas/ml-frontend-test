@@ -14,7 +14,7 @@ export class SearchDetailComponent {
     ) {}
 
     searchText: String = null;
-    searchCategories = ['Category1','Category2','Category3'];
+    searchCategories: String[] = ['Category1','Category2','Category3'];
     searchDetailList: any= {
             author: {
                 name: 'Lucas',
