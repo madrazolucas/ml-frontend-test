@@ -10,7 +10,6 @@ import { ProductSearchService } from '../product-search.service';
 })
 export class ProductDetailComponent {
 
-  productCategories: String[];
   productId: String;
   productDetail: ProductDetailModel;
   isLoading: boolean;

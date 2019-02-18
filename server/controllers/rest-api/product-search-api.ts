@@ -28,31 +28,33 @@ const getItems = async (req, res, next) => {
     searchItemsResponse.categories = [];
     searchItemsResponse.items = [];
 
-    const categories = getCategories(searchResponse.filters);
-    if (categories) {
-      _.forEach(categories, category => {
-        searchItemsResponse.categories.push(category.name);
+    if (searchResponse.results && searchResponse.results.length > 0) {
+      const categories = getCategories(searchResponse.filters);
+      if (categories) {
+        _.forEach(categories, category => {
+          searchItemsResponse.categories.push(category.name);
+        });
+      } else {
+        searchItemsResponse.categories.push(CONSTANTS.Default.CATEGORY_OTHERS);
+      }
+  
+      _.forEach(searchResponse.results, item => {
+        const productSearchItem = {
+          id: _.get(item, 'id'),
+          title: _.get(item, 'title'),
+          price: {
+            currency: _.get(item, 'currency_id'),
+            amount: _.get(item, 'price'),
+            decimals: 0o0
+          },
+          picture: _.get(item, 'thumbnail'),
+          condition: _.get(item, 'condition'),
+          free_shipping: _.get(item, 'shipping.free_shipping'),
+          city: _.get(item, 'address.state_name')
+        };
+        searchItemsResponse.items.push(productSearchItem);
       });
-    } else {
-      searchItemsResponse.categories.push(CONSTANTS.Default.CATEGORY_OTHERS);
     }
-
-    _.forEach(searchResponse.results, item => {
-      const productSearchItem = {
-        id: _.get(item, 'id'),
-        title: _.get(item, 'title'),
-        price: {
-          currency: _.get(item, 'currency_id'),
-          amount: _.get(item, 'price'),
-          decimals: 0o0
-        },
-        picture: _.get(item, 'thumbnail'),
-        condition: _.get(item, 'condition'),
-        free_shipping: _.get(item, 'shipping.free_shipping'),
-        city: _.get(item, 'address.state_name')
-      };
-      searchItemsResponse.items.push(productSearchItem);
-    });
     res.json(searchItemsResponse);
   } catch (error) {
     console.log(`${CONSTANTS.Errors.PRODUCT_SEARCH_ERROR}${error}`);

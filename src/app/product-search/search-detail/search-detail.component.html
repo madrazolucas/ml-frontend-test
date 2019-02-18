@@ -1,4 +1,3 @@
-<search-category [searchCategories]="searchCategories"></search-category>
 <div *ngIf="!isLoading"> 
   <section class="search-detail-container" *ngFor="let item of searchDetailList | slice:0:4">
     <a class="search-detail-product" (click)="openProductDetails(item)">

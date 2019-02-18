@@ -12,7 +12,6 @@ export class SearchDetailComponent {
 
   searchQuery: String;  
   searchDetailList: SearchDetailItemModel[];
-  searchCategories: String[];
   isLoading: boolean;
   
   constructor(
@@ -22,7 +21,6 @@ export class SearchDetailComponent {
   ) {
     this.isLoading = false;
     this.searchDetailList = [];
-    this.searchCategories = [];
   }
 
   ngOnInit(): void {
@@ -42,7 +40,7 @@ export class SearchDetailComponent {
       .subscribe(
         response => {
           this.searchDetailList = response.items;
-          this.searchCategories = response.categories;
+          this.productSearchService.setCategories(response.categories);
           this.isLoading = false;
         }
       );
