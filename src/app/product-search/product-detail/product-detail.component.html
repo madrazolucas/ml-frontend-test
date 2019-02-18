@@ -5,7 +5,7 @@
       </div>
       <div class="product-detail-information">
         <span class="product-detail-condition">
-          {{productDetail.condition}} - {{productDetail.sold_quantity}} vendidos
+          {{productDetail.condition | productCondition }} - {{productDetail.sold_quantity}} vendidos
         </span>
         <div class="product-detail-title">
           {{productDetail.title}}

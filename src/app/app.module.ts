@@ -10,6 +10,7 @@ import { SearchDetailComponent } from './product-search/search-detail/search-det
 import { ProductDetailComponent } from './product-search/product-detail/product-detail.component';
 import { SearchCategoryComponent } from './product-search/search-category/search-category.component';
 import { ProductSearchService } from './product-search/product-search.service';
+import { ProductConditionPipe } from './product-search/common/pipes/product-condition.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductSearchService } from './product-search/product-search.service';
     ProductSearchComponent,
     SearchDetailComponent,
     ProductDetailComponent,
-    SearchCategoryComponent
+    SearchCategoryComponent,
+    ProductConditionPipe
   ],
   imports: [
     BrowserModule,

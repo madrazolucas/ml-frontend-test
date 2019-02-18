@@ -5,6 +5,7 @@ $ml-product-detail-image-width: 680px;
 .product-detail-container {
   background-color: $white;
   margin: 16px 10%;
+  min-width: 1024px;
 
   .product-detail {
     white-space: nowrap;
@@ -26,7 +27,7 @@ $ml-product-detail-image-width: 680px;
       margin-left: 16px;
       display: inline-block;
       // Width: container width - image width
-      width: calc(100% - #{$ml-product-detail-image-width} - 48px);
+      width: calc(100% - #{$ml-product-detail-image-width} - 64px);
       vertical-align: top;
 
       .product-detail-condition {
@@ -61,7 +62,7 @@ $ml-product-detail-image-width: 680px;
         color: $white;
         border-radius: 4px;
         display: block;
-        margin-right: 32px;
+        margin-right: 16px;
       }
     }
 
