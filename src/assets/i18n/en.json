@@ -1,0 +1,12 @@
+{
+  "productSearch": {
+    "search": {
+      "placeholder": "Never stop looking"
+    },
+    "productDetail": {
+      "soldLabel": "sold",
+      "descriptionLabel": "Description",
+      "buyLabel": "Buy"
+    }
+  }
+}

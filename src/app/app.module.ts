@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,8 @@ import { SearchCategoryComponent } from './product-search/search-category/search
 import { ProductSearchService } from './product-search/product-search.service';
 import { ProductConditionPipe } from './product-search/common/pipes/product-condition.pipe';
 import { ProductCurrencyPipe } from './product-search/common/pipes/product-currency.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,14 @@ import { ProductCurrencyPipe } from './product-search/common/pipes/product-curre
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     ProductSearchService
@@ -35,3 +46,7 @@ import { ProductCurrencyPipe } from './product-search/common/pipes/product-curre
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

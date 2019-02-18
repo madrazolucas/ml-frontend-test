@@ -6,7 +6,7 @@
                class="product-search-text" 
                [(ngModel)]="searchText"
                name="searchText"
-               placeholder="{{searchPlaceholder}}">
+               placeholder="{{ 'productSearch.search.placeholder' | translate}}">
         <button type="submit" (click)="searchProduct()" class="product-search-button">
           <i class="product-search-icon"></i>
         </button>

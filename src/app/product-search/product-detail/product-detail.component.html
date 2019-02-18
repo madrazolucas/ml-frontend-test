@@ -5,19 +5,20 @@
       </div>
       <div class="product-detail-information">
         <span class="product-detail-condition">
-          {{productDetail.condition | productCondition }} - {{productDetail.sold_quantity}} vendidos
+          {{productDetail.condition | productCondition }} - {{productDetail.sold_quantity}} 
+          {{'productSearch.productDetail.soldLabel' | translate}}
         </span>
         <div class="product-detail-title">
           {{productDetail.title}}
         </div>
         <span class="product-detail-price">
           {{productDetail.price.currency | productCurrency}} {{productDetail.price.amount}}
-          <sup>00</sup>
+          <sup>{{productDetail.price.decimals}}</sup>
         </span>
-        <a class="product-detail-buy">Comprar!</a>
+        <a class="product-detail-buy">{{'productSearch.productDetail.buyLabel' | translate}}</a>
       </div>
       <div class="product-detail-description">
-        <h2>Descripcion</h2>
+        <h2>{{'productSearch.productDetail.descriptionLabel' | translate}}</h2>
         <div class="product-detail-description-text">
           {{productDetail.description}}
         </div>

@@ -39,13 +39,14 @@ const getItems = async (req, res, next) => {
       }
   
       _.forEach(searchResponse.results, item => {
+        const priceDecimals = Math.floor((_.get(item, 'price') % 1) * 100);
         const productSearchItem = {
           id: _.get(item, 'id'),
           title: _.get(item, 'title'),
           price: {
             currency: _.get(item, 'currency_id'),
-            amount: _.get(item, 'price'),
-            decimals: 0o0
+            amount: Math.floor(_.get(item, 'price')),
+            decimals: priceDecimals === 0 ? '00' : priceDecimals
           },
           picture: _.get(item, 'thumbnail'),
           condition: _.get(item, 'condition'),
@@ -69,14 +70,17 @@ const getItemDetail = async (req, res, next) => {
   try {
     response = await axios.get(`${CONSTANTS.Paths.PRODUCT_DETAIL}${productId}`);
     const productDetail = response.data;
+    
+    // Decimals as integer from price value 
+    const priceDecimals = Math.floor((_.get(productDetail, 'price') % 1) * 100);
 
     productDetailItem = {
       id: _.get(productDetail, 'id'),
       title: _.get(productDetail, 'title'),
       price: {
         currency: _.get(productDetail, 'currency_id'),
-        amount: _.get(productDetail, 'price'),
-        decimals: 0o0
+        amount: Math.floor(_.get(productDetail, 'price')),
+        decimals: priceDecimals === 0 ? '00' : priceDecimals 
       },
       picture: _.head(productDetail.pictures).url,
       condition: _.get(productDetail, 'condition'),

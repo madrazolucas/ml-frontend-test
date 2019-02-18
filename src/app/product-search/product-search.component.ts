@@ -13,9 +13,6 @@ export class ProductSearchComponent {
   searchCategories: String[];
   categoriesSubscription: Subscription;
 
-  //TODO agregar claves de traduccion
-  searchPlaceholder = 'Nunca dejes de buscar';
-
   constructor(private router: Router,
               private productSearchService: ProductSearchService) {
     this.categoriesSubscription = this.productSearchService

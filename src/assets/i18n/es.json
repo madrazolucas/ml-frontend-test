@@ -1,0 +1,12 @@
+{
+  "productSearch": {
+    "search": {
+      "placeholder": "Nunca dejes de buscar"
+    },
+    "productDetail": {
+      "soldLabel": "vendidos",
+      "descriptionLabel": "Descripción",
+      "buyLabel": "Comprar"
+    }
+  }
+}
