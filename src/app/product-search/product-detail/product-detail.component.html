@@ -11,7 +11,7 @@
           {{productDetail.title}}
         </div>
         <span class="product-detail-price">
-          !$ {{productDetail.price.amount}}
+          {{productDetail.price.currency | productCurrency}} {{productDetail.price.amount}}
           <sup>00</sup>
         </span>
         <a class="product-detail-buy">Comprar!</a>

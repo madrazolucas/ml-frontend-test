@@ -11,6 +11,7 @@ import { ProductDetailComponent } from './product-search/product-detail/product-
 import { SearchCategoryComponent } from './product-search/search-category/search-category.component';
 import { ProductSearchService } from './product-search/product-search.service';
 import { ProductConditionPipe } from './product-search/common/pipes/product-condition.pipe';
+import { ProductCurrencyPipe } from './product-search/common/pipes/product-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductConditionPipe } from './product-search/common/pipes/product-cond
     SearchDetailComponent,
     ProductDetailComponent,
     SearchCategoryComponent,
-    ProductConditionPipe
+    ProductConditionPipe,
+    ProductCurrencyPipe
   ],
   imports: [
     BrowserModule,
