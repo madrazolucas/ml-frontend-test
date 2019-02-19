@@ -9,6 +9,28 @@ $ml-grey: #999999;
 $ml-light-grey: #EEEEEE;
 $ml-light-blue: #3483FA;
 
+// Colors variables based on ML Product Search App
+// Component: Product Search
+$ml-product-search-header-background-color: $ml-yellow;
+$ml-product-search-button-background-color: $ml-light-grey;
+// Component: Search Detail
+$ml-search-detail-container-background-color: $white;
+$ml-search-detail-product-color: $ml-dark-grey;
+$ml-search-detail-product-border-color: $white;
+$ml-search-detail-product-location-color: $ml-dark-grey;
+// Component: Search Category
+$ml-search-category-path-color: $ml-grey;
+// Component: Product Detail
+$ml-product-detail-container-background-color: $white; 
+$ml-product-detail-condition-color: $ml-dark-grey; 
+$ml-product-detail-title-color: $ml-dark-grey; 
+$ml-product-detail-price-color: $ml-dark-grey; 
+$ml-product-detail-buy-background-color: $ml-light-blue;
+$ml-product-detail-description-color: $ml-dark-grey; 
+$ml-product-detail-description-text-color: $ml-grey; 
+
+
+
 // Fonts
 $ml-font: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
 $ml-search-input-font-size: 18px;

@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist/ml-frontend-test')));
 
+// MercadoLibre Product Search API Routes 
 router.get('/api/items', productSearchApi.getItems);
 router.route('/api/items/:id').get(productSearchApi.getItemDetail);
 app.use('/', router);

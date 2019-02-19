@@ -1,7 +1,7 @@
 @import '../../base';
 
 .product-search-header {
-  background-color: $ml-yellow;
+  background-color: $ml-product-search-header-background-color;
   padding: 8px 0;
 
   .product-search-container {
@@ -49,7 +49,7 @@
     }
 
     .product-search-button {
-      background-color: $ml-light-grey;
+      background-color: $ml-product-search-button-background-color;
       border: none;
       outline: none;
       cursor: pointer;
