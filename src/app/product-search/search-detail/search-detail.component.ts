@@ -33,6 +33,9 @@ export class SearchDetailComponent {
       });
   }
 
+  /**
+   * Function to call search service and get all items
+   */
   getSearchDetail(): void {
     this.isLoading = true;
     this.productSearchService
@@ -46,6 +49,10 @@ export class SearchDetailComponent {
       );
   }
 
+  /**
+   * Function to navigate to product details view when an item is selected
+   * @param item selected item to open details
+   */
   openProductDetails(item: SearchDetailItemModel): void {
     this.router.navigate(['/api/items', item.id]);
   }

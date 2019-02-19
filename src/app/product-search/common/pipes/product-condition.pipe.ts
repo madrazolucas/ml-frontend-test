@@ -1,5 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Pipe to transform product condition to readable values
+ */
 @Pipe({name: 'productCondition'})
 export class ProductConditionPipe implements PipeTransform {
   transform(value: string): string {

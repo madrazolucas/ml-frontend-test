@@ -20,6 +20,9 @@ export class ProductSearchComponent {
       .subscribe( categories => { this.searchCategories = categories });
   }
 
+  /**
+   * Function to navigate to items view when a search is performed
+   */
   searchProduct(): void {
     this.router.navigate(['/api/items'], { queryParams: { search: this.searchText } });
   }

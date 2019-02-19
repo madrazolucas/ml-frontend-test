@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./search-category.component.scss']
 })
 export class SearchCategoryComponent {
-
   @Input() searchCategories: String[];
 
   constructor() {}

@@ -17,6 +17,7 @@ const productDetailResponse = {
   item: {}
 };
 
+// Function to get all related items given a query string
 const getItems = async (req, res, next) => {
   const queryString = req.query.q;
   let response;
@@ -28,6 +29,7 @@ const getItems = async (req, res, next) => {
     searchItemsResponse.categories = [];
     searchItemsResponse.items = [];
 
+    // Logic to get search categories from response
     if (searchResponse.results && searchResponse.results.length > 0) {
       const categories = getCategories(searchResponse.filters);
       if (categories) {
@@ -38,6 +40,7 @@ const getItems = async (req, res, next) => {
         searchItemsResponse.categories.push(CONSTANTS.Default.CATEGORY_OTHERS);
       }
   
+      // Get items values
       _.forEach(searchResponse.results, item => {
         const priceDecimals = Math.floor((_.get(item, 'price') % 1) * 100);
         const productSearchItem = {
@@ -62,11 +65,13 @@ const getItems = async (req, res, next) => {
   }
 };
 
+// Function to get item detail values given a specific product id 
 const getItemDetail = async (req, res, next) => {
   const productId = req.params.id;
   let productDetailItem = {};
   let response;
 
+  // Call api with product details
   try {
     response = await axios.get(`${CONSTANTS.Paths.PRODUCT_DETAIL}${productId}`);
     const productDetail = response.data;
@@ -91,6 +96,7 @@ const getItemDetail = async (req, res, next) => {
     console.log(`${CONSTANTS.Errors.PRODUCT_DETAIL_ERROR}, ${productId}${error}`);
   }
 
+  // Call api with product description
   try {
     response = await axios.get(
       `${CONSTANTS.Paths.PRODUCT_DETAIL}${productId}${CONSTANTS.Paths.PRODUCT_DESCRIPTION}`
@@ -103,6 +109,7 @@ const getItemDetail = async (req, res, next) => {
   }
 };
 
+// Function to get search categories from search filters
 const getCategories = (filters) => {
   let categories = null;
   if (filters && _.head(filters)) {
@@ -115,6 +122,7 @@ const getCategories = (filters) => {
   return categories;
 }
 
+// Object with functions to export
 const productSearch = {
   getItems: getItems,
   getItemDetail: getItemDetail

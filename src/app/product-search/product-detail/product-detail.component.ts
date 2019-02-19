@@ -27,6 +27,9 @@ export class ProductDetailComponent {
     );
   }
 
+  /**
+   * Function to call search service and get products details
+   */
   getProductDetail(param): void {
     this.isLoading = true;
     this.productId = param.params.id;
